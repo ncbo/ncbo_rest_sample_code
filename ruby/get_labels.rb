@@ -26,4 +26,4 @@ while (next_page)
 end
 
 # Output the labels
-pp labels.compact
+labels.compact.each {|l| puts l}
