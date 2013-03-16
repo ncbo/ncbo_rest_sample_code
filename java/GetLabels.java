@@ -14,17 +14,27 @@ public class GetLabels {
 	static final ObjectMapper mapper = new ObjectMapper();
 
 	public static void main(String[] args) {
+		ArrayList<String> labels = new ArrayList<String>();
+
+    // Get all ontologies from the REST service and parse the JSON
 		String ontologies_string = get(REST_URL + "/ontologies");
 		JsonNode ontologies = jsonToNode(ontologies_string);
+
+    // Iterate looking for ontology with acronym BRO
 		JsonNode bro = null;
 		for (JsonNode ontology : ontologies) {
 			if (ontology.get("acronym").asText().equalsIgnoreCase("bro"))
 				bro = ontology;
 		}
 		
+    // Using the hypermedia link called `classes`, get the first page
 		JsonNode page = jsonToNode(get(bro.get("links").get("classes").asText()));
+
+    // From the returned page, get the hypermedia link to the next page
 		String nextPage = page.get("links").get("next_page").asText();
-		ArrayList<String> labels = new ArrayList<String>();
+
+    // Iterate over the available pages adding labels from all classes
+    // When we hit the last page, the while loop will exit
 		while (nextPage.length() != 0) {
 			for (JsonNode cls : page.get("class")) {
 				if (!cls.get("prefLabel").isNull())
@@ -39,6 +49,7 @@ public class GetLabels {
 			}
 		}
 		
+    // Print out all the labels
 		for (String label : labels) {
 			System.out.println(label);
 		}
