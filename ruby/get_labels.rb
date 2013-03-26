@@ -18,7 +18,7 @@ page = JSON.parse(open(bro["links"]["classes"]).read)
 # When we hit the last page, the while loop will exit
 next_page = page
 while (next_page)
-  next_page = page["links"]["next_page"]
+  next_page = page["links"]["nextPage"]
   page["class"].each do |cls|
     labels << cls["prefLabel"]
   end

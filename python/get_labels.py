@@ -21,12 +21,12 @@ page = json.loads(urllib2.urlopen(bro["links"]["classes"]).read())
 # When we hit the last page, the while loop will exit
 next_page = page
 while next_page:
-    next_page = page["links"]["next_page"]
+    next_page = page["links"]["nextPage"]
     for bro_class in page["class"]:
         labels.append(bro_class["prefLabel"])
     if next_page:
         page = json.loads(urllib2.urlopen(next_page).read())
 
-# Output the labels        
+# Output the labels
 for label in labels:
     print label

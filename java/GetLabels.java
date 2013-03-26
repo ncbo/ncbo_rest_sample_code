@@ -26,12 +26,12 @@ public class GetLabels {
 			if (ontology.get("acronym").asText().equalsIgnoreCase("bro"))
 				bro = ontology;
 		}
-		
+
     // Using the hypermedia link called `classes`, get the first page
 		JsonNode page = jsonToNode(get(bro.get("links").get("classes").asText()));
 
     // From the returned page, get the hypermedia link to the next page
-		String nextPage = page.get("links").get("next_page").asText();
+		String nextPage = page.get("links").get("nextPage").asText();
 
     // Iterate over the available pages adding labels from all classes
     // When we hit the last page, the while loop will exit
@@ -40,15 +40,15 @@ public class GetLabels {
 				if (!cls.get("prefLabel").isNull())
 					labels.add(cls.get("prefLabel").asText());
 			}
-			
-			if (!page.get("links").get("next_page").isNull()) {
-				nextPage = page.get("links").get("next_page").asText();
+
+			if (!page.get("links").get("nextPage").isNull()) {
+				nextPage = page.get("links").get("nextPage").asText();
 				page = jsonToNode(get(nextPage));
 			} else {
 				nextPage = "";
 			}
 		}
-		
+
     // Print out all the labels
 		for (String label : labels) {
 			System.out.println(label);
@@ -66,7 +66,7 @@ public class GetLabels {
 		}
 		return root;
 	}
-	
+
 	private static String get(String urlToGet) {
 		URL url;
 		HttpURLConnection conn;
