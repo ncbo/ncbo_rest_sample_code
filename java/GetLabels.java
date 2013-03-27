@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GetLabels {
 	static final String REST_URL = "http://stagedata.bioontology.org";
+  static final String API_KEY = "";
 	static final ObjectMapper mapper = new ObjectMapper();
 
 	public static void main(String[] args) {
@@ -77,6 +78,7 @@ public class GetLabels {
 			url = new URL(urlToGet);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
+			conn.setRequestProperty("Authorization", "apikey token=" + API_KEY);
 			conn.setRequestProperty("Accept", "application/json");
 			rd = new BufferedReader(
 					new InputStreamReader(conn.getInputStream()));
