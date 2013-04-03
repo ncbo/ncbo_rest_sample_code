@@ -29,7 +29,7 @@ page = get_json(bro["links"]["classes"])
 next_page = page
 while next_page:
     next_page = page["links"]["nextPage"]
-    for bro_class in page["class"]:
+    for bro_class in page["collection"]:
         labels.append(bro_class["prefLabel"])
     if next_page:
         page = get_json(next_page)

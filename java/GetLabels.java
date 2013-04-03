@@ -37,7 +37,7 @@ public class GetLabels {
     // Iterate over the available pages adding labels from all classes
     // When we hit the last page, the while loop will exit
 		while (nextPage.length() != 0) {
-			for (JsonNode cls : page.get("class")) {
+			for (JsonNode cls : page.get("collection")) {
 				if (!cls.get("prefLabel").isNull())
 					labels.add(cls.get("prefLabel").asText());
 			}
