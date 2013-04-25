@@ -1,1 +1,9 @@
 *.class
+/java/nbproject/private/
+java/build.xml
+java/lib/CopyLibs/org-netbeans-modules-java-j2seproject-copylibstask.jar
+java/lib/nblibraries.properties
+java/manifest.mf
+java/nbproject/*
+/java/build/
+/java/dist/
