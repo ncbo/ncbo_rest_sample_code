@@ -1,7 +1,7 @@
 require 'json'
 require 'open-uri'
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 def get_json(url)

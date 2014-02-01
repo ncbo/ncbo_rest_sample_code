@@ -12,22 +12,22 @@ import java.net.URLEncoder;
 
 public class AnnotateText {
 
-    static final String REST_URL = "http://stagedata.bioontology.org";
+    static final String REST_URL = "http://data.bioontology.org";
     static final String API_KEY = "";
     static final ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) throws Exception {
         String textToAnnotate = URLEncoder.encode("Melanoma is a malignant tumor of melanocytes which are found predominantly in skin but also in the bowel and the eye.", "ISO-8859-1");
-        
+
         // Get just annotations
         JsonNode annotations = jsonToNode(get(REST_URL + "/annotator?text=" + textToAnnotate));
         printAnnotations(annotations);
-        
+
         // Annotations with hierarchy
         annotations = jsonToNode(get(REST_URL + "/annotator?max_level=3&text=" + textToAnnotate));
         printAnnotations(annotations);
     }
-    
+
     private static void printAnnotations(JsonNode annotations) {
         for (JsonNode annotation : annotations) {
             // Get the details for the class that was found in the annotation and print

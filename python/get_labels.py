@@ -1,7 +1,7 @@
 import urllib2
 import json
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 

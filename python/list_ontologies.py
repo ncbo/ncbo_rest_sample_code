@@ -3,7 +3,7 @@ import json
 import os
 from pprint import pprint
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 def get_json(url):
@@ -28,7 +28,7 @@ ontologies = get_json(resources["links"][found_link])
 ontology_output = []
 for ontology in ontologies:
     ontology_output.append(ontology["name"] + "\n" + ontology["@id"] + "\n\n")
-    
+
 # Print the first ontology in the list
 pprint(ontologies[0])
 

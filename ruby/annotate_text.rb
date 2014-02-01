@@ -2,7 +2,7 @@ require 'json'
 require 'open-uri'
 require 'cgi'
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 def get_json(url)
@@ -23,7 +23,7 @@ def puts_annotations(annotations)
       puts "\tto: #{annotation["to"]}"
       puts "\tmatch type: #{annotation["matchType"]}"
     end
-        
+
     if !result["hierarchy"].empty?
       puts "\n\tHierarchy annotations"
       result["hierarchy"].each do |annotation|

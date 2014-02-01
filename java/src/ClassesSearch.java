@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 
 public class ClassesSearch {
 
-    static final String REST_URL = "http://stagedata.bioontology.org";
+    static final String REST_URL = "http://data.bioontology.org";
     static final String API_KEY = "";
     static final ObjectMapper mapper = new ObjectMapper();
     static final ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();

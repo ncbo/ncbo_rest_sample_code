@@ -3,7 +3,7 @@ import json
 import os
 from pprint import pprint
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 def get_json(url):
@@ -22,7 +22,7 @@ for line in terms_file:
 search_results = []
 for term in terms:
     search_results.append(get_json(REST_URL + "/search?q=" + term)["collection"])
-    
+
 # Print the results
 for result in search_results:
     pprint(result)

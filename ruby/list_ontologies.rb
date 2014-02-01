@@ -1,7 +1,7 @@
 require 'json'
 require 'open-uri'
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 def get_json(url)
@@ -21,7 +21,7 @@ ontologies = get_json(resources["links"][link])
 # Get the name and ontology id from the returned list
 ontology_output = []
 ontologies.each {|o| ontology_output << "#{o['name']}\n#{o['@id']}\n\n"}
-    
+
 # Print the first ontology in the list
 require 'pp'
 pp ontologies.first

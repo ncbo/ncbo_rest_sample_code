@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GetLabels {
 
-    static final String REST_URL = "http://stagedata.bioontology.org";
+    static final String REST_URL = "http://data.bioontology.org";
     static final String API_KEY = "";
     static final ObjectMapper mapper = new ObjectMapper();
 

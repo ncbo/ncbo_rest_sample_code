@@ -1,7 +1,7 @@
 require 'json'
 require 'open-uri'
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 def get_json(url)
@@ -19,7 +19,7 @@ search_results = []
 terms.each do |term|
   search_results << get_json(REST_URL + "/search?q=" + term)["collection"]
 end
-    
+
 # Print the results
 require 'pp'
 pp search_results

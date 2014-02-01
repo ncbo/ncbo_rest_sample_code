@@ -3,7 +3,7 @@ import json
 import os
 from pprint import pprint
 
-REST_URL = "http://stagedata.bioontology.org"
+REST_URL = "http://data.bioontology.org"
 API_KEY = ""
 
 def get_json(url):
@@ -24,7 +24,7 @@ def print_annotations(annotations):
             print "\tfrom: " + str(annotation["from"])
             print "\tto: " + str(annotation["to"])
             print "\tmatch type: " + annotation["matchType"]
-            
+
         if result["hierarchy"]:
             print "\n\tHierarchy annotations"
             for annotation in result["hierarchy"]:
@@ -35,7 +35,7 @@ def print_annotations(annotations):
                 print "\t\t\tprefLabel: " + class_details["prefLabel"]
                 print "\t\t\tontology: " + class_details["links"]["ontology"]
                 print "\t\t\tdistance from originally annotated class: " + str(annotation["distance"])
-    
+
         print "\n\n"
 
 # Annotate using the provided text
