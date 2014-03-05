@@ -9,9 +9,9 @@ def get_json(url)
   JSON.parse(open(url, "Authorization" => "apikey token=#{API_KEY}").read)
 end
 
-def puts_annotations(annotations)
+def puts_annotations(annotations, get_class = true)
   annotations.each do |result|
-    class_details = get_json(result["annotatedClass"]["links"]["self"])
+    class_details = get_class ? get_json(result["annotatedClass"]["links"]["self"]) : result["annotatedClass"]
     puts "Class details"
     puts "\tid: " + class_details["@id"]
     puts "\tprefLabel: " + class_details["prefLabel"]
@@ -41,13 +41,18 @@ def puts_annotations(annotations)
   end
 end
 
-# Annotate using the provided text
 text_to_annotate = "Melanoma is a malignant tumor of melanocytes which are found predominantly in skin but also in the bowel and the eye."
+
+# Annotate using the provided text
 annotations = get_json(REST_URL + "/annotator?text=" + CGI.escape(text_to_annotate))
 
-# puts out annotation details
+# Prints out annotation details
 puts_annotations(annotations)
 
 # Annotate with hierarchy information
 annotations = get_json(REST_URL + "/annotator?max_level=3&text=" + CGI.escape(text_to_annotate))
+puts_annotations(annotations)
+
+# Annotate with prefLabel, synonym, definition returned
+annotations = get_json(REST_URL + "/annotator?include=prefLabel,synonym,definition&text=" + CGI.escape(text_to_annotate))
 puts_annotations(annotations)
