@@ -7,3 +7,4 @@ java/manifest.mf
 java/nbproject/*
 /java/build/
 /java/dist/
+java/.idea/*
