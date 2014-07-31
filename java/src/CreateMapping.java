@@ -54,42 +54,6 @@ public class CreateMapping {
         System.out.println("Added mapping successfully");
     }
 
-    private static JsonNode jsonToNode(String json) {
-        JsonNode root = null;
-        try {
-            root = mapper.readTree(json);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return root;
-    }
-
-    private static String get(String urlToGet) {
-        URL url;
-        HttpURLConnection conn;
-        BufferedReader rd;
-        String line;
-        String result = "";
-        try {
-            url = new URL(urlToGet);
-            conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Authorization", "apikey token=" + API_KEY);
-            conn.setRequestProperty("Accept", "application/json");
-            rd = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream()));
-            while ((line = rd.readLine()) != null) {
-                result += line;
-            }
-            rd.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
     private static String postJSON(String urlToGet, String body) {
         URL url;
         HttpURLConnection conn;
