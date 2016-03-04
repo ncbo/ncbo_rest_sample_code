@@ -7,4 +7,7 @@ java/manifest.mf
 java/nbproject/*
 /java/build/
 /java/dist/
+
+# IntelliJ
 java/.idea/*
+java/*.iml
