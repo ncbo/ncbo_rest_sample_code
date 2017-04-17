@@ -44,8 +44,6 @@ namespace ncbo
             {
                 Console.WriteLine(label); 
             }
-
-            Console.ReadLine(); 
         }
     }
 }

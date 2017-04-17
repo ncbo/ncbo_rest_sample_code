@@ -18,7 +18,7 @@ namespace ncbo
                 Console.WriteLine("Class details");
                 Console.WriteLine("\tID: " + annotationPage.ID);
                 Console.WriteLine("\tPrefLabel: " + annotationPage.PrefLabel);
-                Console.WriteLine("\tOntology: " + annotationPage.Links.Ontology);
+                Console.WriteLine("\tOntology: " + annotationPage.Links?.Ontology);
 
                 Console.WriteLine("Annotation details"); 
                 foreach(Annotation annotation in annotationResult.Annotations)

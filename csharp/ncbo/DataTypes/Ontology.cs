@@ -7,6 +7,8 @@ namespace ncbo.DataTypes
 {
     public class Ontology
     {
+        [JsonProperty("@id")]
+        public string ID { get; set; }
         [JsonProperty("administeredBy")]
         public string[] AdministeredBy { get; set; }
         [JsonProperty("acronym")]
