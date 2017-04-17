@@ -13,7 +13,9 @@ namespace ncbo
         {
             //GetLabels.DoIt();
 
-            AnnotateText.DoIt(); 
+            //AnnotateText.DoIt(); 
+
+            ClassesSearch.DoIt(); 
         }
     }
 }
