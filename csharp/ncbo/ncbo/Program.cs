@@ -11,7 +11,9 @@ namespace ncbo
     {
         static void Main(string[] args)
         {
-            GetLabels.DoIt(); 
+            //GetLabels.DoIt();
+
+            AnnotateText.DoIt(); 
         }
     }
 }

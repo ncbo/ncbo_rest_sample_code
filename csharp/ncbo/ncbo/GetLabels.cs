@@ -13,7 +13,7 @@ namespace ncbo
         public static void DoIt()
         {
             // Get all ontologies from the REST service and parse the JSON
-            Ontology[] ontology = Network.GetResponseAs<Ontology[]>("http://data.bioontology.org/ontologies"); 
+            Ontology[] ontology = Network.GetResponseAs<Ontology[]>(Constants.BaseUrl + "/ontologies"); 
 
             Ontology broOntology = ontology.Where(n => n.Acronym == "BRO").FirstOrDefault();
 

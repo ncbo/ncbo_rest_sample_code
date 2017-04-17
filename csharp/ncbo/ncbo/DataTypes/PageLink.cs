@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ncbo.DataTypes
 {
-    public class PageLink
+    public class PageLinks
     {
         [JsonProperty("nextPage")]
         public string NextPageUrl { get; set; }

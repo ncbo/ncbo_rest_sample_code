@@ -18,7 +18,7 @@ namespace ncbo.DataTypes
         [JsonProperty("nextPage")]
         public int? NextPageNumber { get; set; }
         [JsonProperty("links")]
-        public PageLink Link { get; set; }
+        public PageLinks Link { get; set; }
         [JsonProperty("collection")]
         public List<PageCollection> Collections { get; set; }
     }

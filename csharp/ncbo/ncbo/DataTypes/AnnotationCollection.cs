@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ncbo.DataTypes
 {
-    public class PageCollection
+    public class AnnotationPage
     {
         [JsonProperty("@id")]
         public string ID { get; set; }
@@ -22,6 +22,6 @@ namespace ncbo.DataTypes
         [JsonProperty("obsolete")]
         public bool Obsolete { get; set; }
         [JsonProperty("links")]
-        public PageLinks Links { get; set; }
+        public AnnotationLinks Links { get; set; }
     }
 }
