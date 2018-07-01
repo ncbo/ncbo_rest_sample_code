@@ -1,3 +1,4 @@
+.DS_Store
 *.class
 /java/nbproject/private/
 java/build.xml
@@ -300,3 +301,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Python virtualenv
+.venv/
