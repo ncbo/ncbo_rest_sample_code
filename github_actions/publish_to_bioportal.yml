@@ -1,0 +1,33 @@
+# This GitHub Actions workflow facilitates the activation of BioPortal's
+# remote ontology pull mechanism in response to the publication of a new
+# ontology version on GitHub.
+# Instead of relying on the daily scheduled pull, users can trigger the pull mechanism on demand.
+#
+# Requirements:
+#
+# 1. Ontology must be configured in BioPortal to be pulled from a URL.
+# 1. Ensure the presence of a GitHub repository secret BIOPORTAL_APIKEY containing APIKEY with
+# owner/administrative rights to ontology
+# 2. Replace ONTOLOGY_ACRONYM with the acronym of the ontology
+
+name: Publish to BioPortal
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  trigger_bioportal_pull:
+    steps:
+      - name: trigger_bioportal_pull
+        run: |
+          ONTOLOGY="ONTOLOGY_ACRONYM"
+          API_ENDPOINT="https://data.bioontology.org/ontologies"
+          AUTH="Authorization: apikey token=${{ secrets.BIOPORTAL_APIKEY }}"
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -H "${AUTH}" -X POST "${API_ENDPOINT}/${ONTOLOGY}/pull")
+          if [ $RESPONSE -ne "204" ]; then
+            echo "FAILURE: API call resulted in $RESPONSE status code"
+            exit 1
+          else
+             echo "SUCCESS: $RESPONSE"
+          fi
